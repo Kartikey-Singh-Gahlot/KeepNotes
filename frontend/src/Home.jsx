@@ -17,7 +17,7 @@ export default function Home(){
         let prValid = await unpValid.json();
 
         if(prValid.status==false){
-           navigate("/");
+           navigate("/signup");
         }
         else{
          let unp = await fetch(`${baseURL}/notes`, {method:"GET", credentials:"include"});
