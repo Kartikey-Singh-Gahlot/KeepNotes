@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import {useNavigate, Link} from "react-router-dom";
+import { baseURL } from "../tools";
 
 export default function SignUp(){
   
@@ -16,7 +17,7 @@ export default function SignUp(){
 
  async function trgrSubmission(e){
    e.preventDefault();
-   let unp = await fetch("http://localhost:8080/auth/signup", { method:"POST", credentials: "include",  headers:{"Content-Type": "application/json"}, body: JSON.stringify(formData)});
+   let unp = await fetch(`${baseURL}/auth/signup`, { method:"POST", credentials: "include",  headers:{"Content-Type": "application/json"}, body: JSON.stringify(formData)});
    let pr = await unp.json();
    alert(pr.body);
    if(pr.status){
@@ -30,7 +31,7 @@ export default function SignUp(){
  
   useEffect(()=>{
         let get = async ()=>{
-          let unp = await fetch("http://localhost:8080/auth/userValidity", {method:"GET", credentials:"include"});
+          let unp = await fetch(`${baseURL}/auth/userValidity`, {method:"GET", credentials:"include"});
           let pr = await unp.json();
       
           if(pr.status){

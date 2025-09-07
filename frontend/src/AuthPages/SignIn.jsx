@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { baseURL } from "../tools";
 
 
 export default function SignIn(){
@@ -17,7 +18,7 @@ export default function SignIn(){
 
  async function trgrSubmission(e){
    e.preventDefault();
-   let unp = await fetch("http://localhost:8080/auth/signin", { method:"POST", credentials: "include",  headers:{"Content-Type": "application/json"}, body: JSON.stringify(formData)});
+   let unp = await fetch(`${baseURL}/auth/signin`, { method:"POST", credentials: "include",  headers:{"Content-Type": "application/json"}, body: JSON.stringify(formData)});
    let pr = await unp.json();
    alert(pr.body);
    if(pr.status){
@@ -29,7 +30,7 @@ export default function SignIn(){
  
   useEffect(()=>{
       let get = async ()=>{
-        let unp = await fetch("http://localhost:8080/auth/userValidity", {method:"GET", credentials:"include"});
+        let unp = await fetch(`${baseURL}/auth/userValidity`, {method:"GET", credentials:"include"});
         let pr = await unp.json();
 
         if(pr.status){

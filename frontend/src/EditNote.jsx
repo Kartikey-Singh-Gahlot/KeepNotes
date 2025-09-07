@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { baseURL } from "./tools";
 
 export default function EditNote(){
      const navigate  = useNavigate();
@@ -9,7 +10,7 @@ export default function EditNote(){
 
      useEffect(()=>{
        async function get(){
-         let unp = await fetch(`http://localhost:8080/notes/${id}`, {method:"GET", credentials:"include", headers:{"Content-Type": "application/json"} });
+         let unp = await fetch(`${baseURL}/notes/${id}`, {method:"GET", credentials:"include", headers:{"Content-Type": "application/json"} });
          let pr = await unp.json();
          setVal(pr.body);
        }
@@ -24,7 +25,7 @@ export default function EditNote(){
 
     async function trgrSubmission(e){
         e.preventDefault();
-        let inp = await fetch(`http://localhost:8080/notes/${id}`,{method:"PATCH", credentials:"include", headers:{"Content-Type": "application/json"}, body:JSON.stringify(val)});
+        let inp = await fetch(`${baseURL}/notes/${id}`,{method:"PATCH", credentials:"include", headers:{"Content-Type": "application/json"}, body:JSON.stringify(val)});
         let pr = await inp.json();
         if(pr.status){
             setTimeout(()=>{

@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { userBoxData, logoData, navBarData, menuBarsData } from "./tools";
+import { userBoxData, logoData, navBarData, menuBarsData, baseURL } from "./tools";
 import "./input.css";
 
 export default function Home(){
@@ -13,14 +13,14 @@ export default function Home(){
  
   useEffect(()=>{
       let get = async ()=>{
-        let unpValid = await fetch("http://localhost:8080/auth/userValidity", {method:"GET", credentials:"include"});
+        let unpValid = await fetch(`${baseURL}/auth/userValidity`, {method:"GET", credentials:"include"});
         let prValid = await unpValid.json();
 
         if(prValid.status==false){
            navigate("/signin");
         }
         else{
-         let unp = await fetch("http://localhost:8080/notes", {method:"GET", credentials:"include"});
+         let unp = await fetch(`${baseURL}/notes`, {method:"GET", credentials:"include"});
          let pr = await unp.json();
          setUserData(pr);
         }
@@ -29,7 +29,7 @@ export default function Home(){
   },[navigate]);
 
   async function trgrDelete(id){
-    let unp = await fetch(`http://localhost:8080/notes/${id}`, {method:"DELETE", credentials:"include"});
+    let unp = await fetch(`${baseURL}/notes/${id}`, {method:"DELETE", credentials:"include"});
     let pr = await unp.json();
     if(pr.status){
       alert(pr.body);
@@ -38,7 +38,7 @@ export default function Home(){
   }
 
   async function trgrLogout(){
-    let unp = await fetch("http://localhost:8080/auth/signout", {method:"POST", credentials:"include"});
+    let unp = await fetch(`${baseURL}/auth/signout`, {method:"POST", credentials:"include"});
     let pr = await unp.json();
     if(pr.status){
       setTimeout(()=>{

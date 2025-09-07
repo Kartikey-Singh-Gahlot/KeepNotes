@@ -15,7 +15,7 @@ const signStatusChecker = (req, res, next)=>{
    
    else{
      try{
-      jwt.verify(token,"secret");
+      jwt.verify(token, process.env.SECRETKEY);
       res.status(403).json({
         status:false,
         body:"Already LoggedIn"

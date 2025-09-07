@@ -1,5 +1,6 @@
 import {useState} from "react";
 import { useNavigate } from "react-router-dom";
+import { baseURL } from "./tools";
 
 export default function AddNote(){
 
@@ -8,7 +9,7 @@ export default function AddNote(){
 
      async function trgrSubmission(e) {
        e.preventDefault();
-       let unp = await fetch("http://localhost:8080/notes", { method:"POST", credentials:"include",headers: {"Content-Type": "application/json"}, body:JSON.stringify(userData)});
+       let unp = await fetch(`${baseURL}/notes`, { method:"POST", credentials:"include",headers: {"Content-Type": "application/json"}, body:JSON.stringify(userData)});
        let pr = await unp.json();
        if(pr.status){
          setTimeout(()=>{
