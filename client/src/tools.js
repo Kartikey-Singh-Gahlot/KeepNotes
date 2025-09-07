@@ -1,0 +1,4 @@
+export const userBoxData = ["hidden","flex flex-col w-full py-1.5  px-1 shadow-[1px_1px_5px_black] rounded-2xl bg-[#f5f5f589] text-black border-[1px]"];
+export const logoData = ["hidden"," block w-full  text-center text-[15px] py-3"]
+export const navBarData = ["fixed z-20 w-fit h-fit flex flex-col  box-border px-3 py-4  items-start ","fixed z-20 w-fit h-full flex flex-col  box-border px-3 py-2  items-start shadow-[0px_2px_10px_black] bg-[#0B2B26]"];
+export const menuBarsData = [{one:" border-1 h-[2px] my-0.5 w-5 transition-[400ms_ease] ", two:" border-1 h-[2px]  my-0.5 w-5 transition-[400ms_ease]", three:" border-1 h-[2px] my-0.5 w-5 transition-[400ms_ease] "}, {one:" border-1 h-[2px] my-0.5 rotate-40 h-[2px] my-0.5 w-6 transition-[400ms_ease] border-red-500 translate-y-0.5 translate-x-0.5", two:"border-1 hidden", three:"border-1 h-[2px] my-0.5 w-6  transition-[400ms_ease] border-red-500 -rotate-40 -translate-1 translate-x-0.5 "}];
