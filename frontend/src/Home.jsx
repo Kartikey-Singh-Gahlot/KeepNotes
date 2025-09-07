@@ -86,7 +86,7 @@ export default function Home(){
           <div className={styling.userBoxStyling}>
               <ul className="flex flex-col w-full py-1.5 justify-between px-1 shadow-[1px_1px_5px_black] rounded-[4px] bg-[#f5f5f589] text-black border-[1px]">
                   <li className=" hover:bg-[#0B2B26] hover:text-white  box-border gap-1 flex w-full  h-fit py-1  px-2 text-[10px] items-center rounded-2xl"><img src="/userIcon.png"    className="h-5  rounded-2xl p-0.5"/>{userData.userId}</li>
-                  <li className=" hover:bg-[#0B2B26] hover:text-white  box-border gap-1 flex w-full  h-fit py-1  px-2 text-[10px] items-center rounded-2xl"><img src="/editIcon.png"    className="h-5  rounded-2xl p-0.5"/><Link to="/Profile">Edit Profile</Link></li>
+                  <li className=" hover:bg-[#0B2B26] hover:text-white  box-border gap-1 flex w-full  h-fit py-1  px-2 text-[10px] items-center rounded-2xl"><img src="/editBlackIcon.png"    className="h-5  rounded-2xl p-0.5"/><Link to="/Profile">Edit Profile</Link></li>
                     
               </ul>
 
@@ -97,7 +97,7 @@ export default function Home(){
               </ul>
 
             
-              <button className="hover:bg-[white] hover:text-black flex justify-center gap-2 px-1 py-2 rounded-[4px] bg-red-500  text-white text-[12px]  cursor-pointer" onClick={trgrLogout} type="submit"><img src="/logOutIcon.png" className="h-5"/>Log Out</button>        
+              <button className="hover:bg-[#0B2B26] hover:text-white hover:border-amber-50 border-black border-[1px] flex justify-center gap-2 px-1 py-2 rounded-[4px] bg-red-500  text-white text-[12px]  cursor-pointer" onClick={trgrLogout} type="submit"><img src="/logOutIcon.png" className="h-5"/>Log Out</button>        
              
           </div>             
     </nav>
@@ -115,14 +115,14 @@ export default function Home(){
                          <ul className="grid min-[780px]:grid-cols-3 min-[500px]:grid-cols-2 grid-cols-1 py-6  px-2 gap-2 justify-left  box-border relative">
                                {(userData.body.length > 0)?userData.body.map((i)=>{ 
                                 return <li className="bg-[url(/credentialsBG.jpg)] bg-cover flex flex-col w-full justify-around px-3 py-4 box-border text-white border-[#ffffff65] border-[1px] gap-5  rounded-2xl" key={i._id}>
-                                             <h1 className="w-full text-center">{i.notesTitle}</h1>
+                                             <h1 className="w-full text-center text-[20px]">{i.notesTitle}</h1>
                                              <p className="custom-scroll hover:bg-[#0B2B26] hover:text-white rounded-[4px] p-3 bg-[#f5f5f556] backdrop-blur-[3px] text-black  text-[13px] h-[200px] whitespace-pre-wrap break-words overflow-y-scroll shadow-[2px_2px_5px_black] text-ellipsis border-[1px] border-black">
                                                  {i.notesContent}
                                              </p>
-                                             <div className="w-full flex justify-around items-center">
-                                                   <button className=" hover:bg-[#0B2B26] hover:shadow-none hover:border-amber-50 border-[1px] hover:text-white shadow-[2px_2px_5px_black] text-black bg-[#f5f5f589] text-[12px] px-2 py-1 rounded " onClick={()=>{ trgrDelete(i._id)}}>Delete</button>
-                                                   <button className=" hover:bg-[#0B2B26] hover:shadow-none hover:border-amber-50 border-[1px] hover:text-white shadow-[2px_2px_5px_black] text-black bg-[#f5f5f589] text-[12px] px-2 py-1 rounded"><Link to={`/notes/${i._id}`}>Edit</Link></button>
-                                             </div>
+                                             <ul className="w-full flex justify-evenly">
+                                                   <li className="hover:bg-[#0B2B26] hover:text-white hover:border-amber-50 border-black border-[1px] bg-red-500 text-[15px]  cursor-pointer flex items-center justify-center gap-2 px-2 py-1 rounded-[4px] shadow-[0px_2px_10px_black]" onClick={()=>{ trgrDelete(i._id)}}><img src="/deleteIcon.png" className="h-4"/>Delete</li>
+                                                   <li className="hover:bg-[#0B2B26] hover:text-white hover:border-amber-50 border-black border-[1px] bg-red-500 text-[15px]  cursor-pointer flex items-center justify-center gap-2 px-2 py-1 rounded-[4px] shadow-[0px_2px_10px_black]"><Link className="flex items-center justify-center gap-2" to={`/notes/${i._id}`}><img className="h-4" src="/editWhiteIcon.png"/>Edit</Link></li>
+                                             </ul>
                                        </li>
                               }):<h1 className="w-full text-center py-4">Nothing to show here</h1>}
                          </ul> 

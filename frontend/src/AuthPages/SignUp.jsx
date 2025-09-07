@@ -6,7 +6,7 @@ export default function SignUp(){
   
  const navigate = useNavigate();
  let [formData, setFormData] = useState({name:"", email:"", password:""});
- let [passStat, setPassStat] = useState({type:"password", status:"Show",src:"/eyeOpenIcon.png"})
+ let [passStat, setPassStat] = useState({type:"password", status:"Show Password",src:"/eyeOpenIcon.png"})
 
  function trgrChange(e){
    e.preventDefault();
@@ -43,12 +43,12 @@ export default function SignUp(){
  function trgrShowPass(){
     if(passStat.type=="password"){
       setPassStat((prev)=>{
-        return {...prev,type:"text",status:"Hide",src:"/eyeCloseIcon.png"};
+        return {...prev,type:"text",status:"Hide Password",src:"/eyeCloseIcon.png"};
       });
     }
     else{
       setPassStat((prev)=>{
-        return {...prev,type:"password",status:"Show",src:"/eyeOpenIcon.png"};
+        return {...prev,type:"password",status:"Show Password",src:"/eyeOpenIcon.png"};
       });
     }
   }
@@ -64,13 +64,24 @@ export default function SignUp(){
 
                     <form  className="flex flex-col justify-center gap-5  px-2 py-4" onSubmit={trgrSubmission}>
                         <div className="w-full flex flex-col gap-5">
-                              <input  className="hover:bg-[#0B2B26] hover:text-white rounded-2xl bg-[#f5f5f589]  text-[black] text-[12px] text-center py-2 px-2   min-[500px]:w-100 w-[70vw] box-border overflow-clip" name="name"     type="name"     value={formData.name} onChange={trgrChange} placeholder="Name"/>
-                              <input  className="hover:bg-[#0B2B26] hover:text-white rounded-2xl bg-[#f5f5f589]  text-[black] text-[12px] text-center py-2 px-2   min-[500px]:w-100 w-[70vw] box-border overflow-clip" name="email"    type="email"    value={formData.email} onChange={trgrChange} placeholder="Email"/>
-                              <input  className="hover:bg-[#0B2B26] hover:text-white rounded-2xl bg-[#f5f5f589]  text-[black] text-[12px] text-center py-2 px-2   min-[500px]:w-100 w-[70vw] box-border overflow-clip" name="password" type={passStat.type} onChange={trgrChange} value={formData.password} placeholder="Password"/>
+                               <div className="flex flex-col">
+                                   <label htmlFor="name" className="text-[10px] flex  items-center gap-1"><img src="/nameWhiteIcon.png" className="h-3.5"/>Name</label>
+                                   <input id="name" className="hover:bg-[#0B2B26] hover:text-white rounded-2xl bg-[#f5f5f589]  text-[black] text-[12px] text-center py-2 px-2   min-[500px]:w-100 w-[70vw] box-border overflow-clip" name="name"     type="name"     value={formData.name} onChange={trgrChange} placeholder="xyz"/>
+                               </div>
+
+                               <div className="flex flex-col">
+                                    <label htmlFor="email" className="text-[10px] flex  items-center gap-1"><img src="/emailWhiteIcon.png" className="h-3.5"/>Email</label>
+                                    <input id="email" className="hover:bg-[#0B2B26] hover:text-white rounded-2xl bg-[#f5f5f589]  text-[black] text-[12px] text-center py-2 px-2   min-[500px]:w-100 w-[70vw] box-border overflow-clip" name="email"    type="email"    value={formData.email} onChange={trgrChange} placeholder="xyz@gmail.com"/> 
+                               </div>
+
+                               <div className="flex flex-col">
+                                    <label htmlFor="password" className="text-[10px] flex  items-center gap-1"><img src="/passwordWhiteIcon.png" className="h-3.5"/>Password</label>
+                                    <input id="password" className="hover:bg-[#0B2B26] hover:text-white rounded-2xl bg-[#f5f5f589]  text-[black] text-[12px] text-center py-2 px-2   min-[500px]:w-100 w-[70vw] box-border overflow-clip" name="password" type={passStat.type} onChange={trgrChange} value={formData.password} placeholder="must be 8 characters long"/>
+                               </div>
                         </div>
                         
                         
-                        <div className="w-full flex justify-left">
+                        <div className="w-full flex justify-left py-2">
                             <div className="flex justify-center gap-1 items-center cursor-pointer" onClick={trgrShowPass}>
                                 <img src={passStat.src} className="h-3.5"/>
                                 <h1 className="underline text-[12px] cursor-pointer" >{passStat.status}</h1>
@@ -78,7 +89,7 @@ export default function SignUp(){
                         </div>
                         
                         <div className="w-full flex flex-col gap-3">
-                            <button className="hover:bg-[white] hover:text-black   py-2 rounded-[4px] bg-red-500  text-white text-[12px] cursor-pointer" type="submit">Sign Up</button>
+                            <button className="hover:bg-[#0B2B26] hover:text-white hover:border-amber-50 border-black border-[1px] bg-red-500 py-2 rounded-[4px]  text-white text-[12px] cursor-pointer" type="submit">Sign Up</button>
                             <h1 className="text-[10px] w-full text-left">
                                   Already have an account ? <Link className="underline px-1" to={"/signin"}>Login</Link>
                             </h1>

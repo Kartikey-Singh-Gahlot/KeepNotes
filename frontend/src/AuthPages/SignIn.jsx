@@ -6,7 +6,7 @@ import { baseURL } from "../tools";
 export default function SignIn(){
 
  let [formData, setFormData] = useState({email:"", password:""});
- let [passStat, setPassStat] = useState({type:"password", status:"Show", src:"/eyeOpenIcon.png"})
+ let [passStat, setPassStat] = useState({type:"password", status:"Show Password", src:"/eyeOpenIcon.png"})
  const navigate = useNavigate();
 
  function trgrChange(e){
@@ -43,12 +43,12 @@ export default function SignIn(){
   function trgrShowPass(){
     if(passStat.type=="password"){
       setPassStat((prev)=>{
-        return {...prev,type:"text",status:"Hide",src:"/eyeCloseIcon.png"};
+        return {...prev,type:"text",status:"Hide Password",src:"/eyeCloseIcon.png"};
       });
     }
     else{
       setPassStat((prev)=>{
-        return {...prev,type:"password",status:"Show",src:"/eyeOpenIcon.png"};
+        return {...prev,type:"password",status:"Show Password",src:"/eyeOpenIcon.png"};
       });
     }
   }
@@ -67,18 +67,25 @@ export default function SignIn(){
 
                  <form className="flex flex-col justify-center gap-3 px-2 py-4" onSubmit={trgrSubmission}>  
                        <div className="w-full flex flex-col gap-5">
-                            <input  className=" hover:bg-[#0B2B26] hover:text-white rounded-2xl bg-[#f5f5f589]  text-[black] text-[12px] text-center py-2 px-2   min-[500px]:w-100 w-[70vw] box-border overflow-clip" name="email"    type="email"    onChange={trgrChange} value={formData.email} placeholder="Email"/>
-                            <input  className=" hover:bg-[#0B2B26] hover:text-white rounded-2xl bg-[#f5f5f589]  text-[black] text-[12px] text-center py-2 px-2   min-[500px]:w-100 w-[70vw] box-border overflow-clip" name="password" type={passStat.type} onChange={trgrChange} value={formData.password} placeholder="Password"/>
+                            <div className="flex flex-col">
+                                <label htmlFor="email" className="text-[10px] flex  items-center gap-1"><img src="/emailWhiteIcon.png" className="h-3.5"/>Email</label>
+                                <input id="email" className=" hover:bg-[#0B2B26] hover:text-white rounded-2xl bg-[#f5f5f589]  text-[black] text-[12px] text-center py-2 px-2   min-[500px]:w-100 w-[70vw] box-border overflow-clip" name="email"    type="email"    onChange={trgrChange} value={formData.email} placeholder="xyz@gmail.com"/>
+                            </div>
+
+                            <div className="flex flex-col">
+                                <label htmlFor="password" className="text-[10px] flex  items-center gap-1"><img src="/passwordWhiteIcon.png" className="h-3.5"/>Password</label>
+                                <input  id="password"  className=" hover:bg-[#0B2B26] hover:text-white rounded-2xl bg-[#f5f5f589]  text-[black] text-[12px] text-center py-2 px-2   min-[500px]:w-100 w-[70vw] box-border overflow-clip" name="password" type={passStat.type} onChange={trgrChange} value={formData.password} placeholder="must be 8 characterers long"/>
+                            </div>
                        </div>
 
-                       <div className="w-full flex justify-left">
+                       <div className="w-full flex justify-left py-2">
                             <div className="flex justify-center gap-1 items-center cursor-pointer" onClick={trgrShowPass}>
                                 <img src={passStat.src} className="h-3.5"/>
                                 <h1 className="underline text-[10px] cursor-pointer" >{passStat.status}</h1>
                             </div>  
                        </div>
                        <div className="w-full flex flex-col gap-3">
-                           <button className="hover:bg-[white] hover:text-black   py-2 rounded-[4px] bg-red-500  text-white text-[12px] cursor-pointer" type="submit">Login</button>
+                           <button className="hover:bg-[#0B2B26] hover:text-white hover:border-amber-50 border-black border-[1px] bg-red-500 py-2 rounded-[4px]text-white text-[12px] cursor-pointer" type="submit">Login</button>
                            <h1 className="text-[10px] w-full text-left">
                              Don't have an account ? <Link className="underline px-1" to={"/signup"}>Create One </Link>
                            </h1>
