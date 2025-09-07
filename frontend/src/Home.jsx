@@ -33,7 +33,7 @@ export default function Home(){
     let pr = await unp.json();
     if(pr.status){
       alert(pr.body);
-      navigate("/signin");
+      navigate("/signup");
     }
   }
 
