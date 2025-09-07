@@ -73,7 +73,6 @@ export default function Home(){
     <nav className={styling.navBarStyling}>   
 
           <div className="w-full flex items-center">
-              {/* <img src="/keepNotesLogo.png" className="w-10"/> */}
               <div className="flex flex-col justify-between h-fit p-0.5" onClick={trgrNav}>
                   <hr className={styling.menuBarsStyling.one}/>
                   <hr className={styling.menuBarsStyling.two}/>
@@ -87,8 +86,15 @@ export default function Home(){
           <div className={styling.userBoxStyling}>
               <ul className="flex flex-col w-full py-1.5 justify-between px-1 shadow-[1px_1px_5px_black] rounded-2xl bg-[#f5f5f589] text-black border-[1px]">
                   <li className=" hover:bg-[#0B2B26] hover:text-white  box-border gap-1 flex w-full  h-fit py-1  px-2 text-[10px] items-center rounded-2xl"><img src="/userIcon.png"    className="h-5  rounded-2xl p-0.5"/>{userData.userId}</li>
-                  <li className=" hover:bg-[#0B2B26] hover:text-white  box-border gap-1 flex w-full  h-fit py-1  px-2 text-[10px] items-center rounded-2xl"><img src="/userIcon.png"    className="h-5  rounded-2xl p-0.5"/>Edit Profile</li>
+                  <li className=" hover:bg-[#0B2B26] hover:text-white  box-border gap-1 flex w-full  h-fit py-1  px-2 text-[10px] items-center rounded-2xl"><img src="/editIcon.png"    className="h-5  rounded-2xl p-0.5"/><Link to="/Profile">Edit Profile</Link></li>
                     
+              </ul>
+
+              <ul className="w-full flex flex-col justify-center gap-3 h-full ">
+                 <li className="w-full text-center"><Link to="/">Home</Link></li>
+                 <li className="w-full text-center"><Link to="/Feed">Feed</Link></li>
+                 <li className="w-full text-center"><Link to="/Contact">About Us</Link></li>
+                 
               </ul>
 
              <ul className="w-full flex justify-center">
