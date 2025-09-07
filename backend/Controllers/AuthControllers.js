@@ -15,7 +15,7 @@ const signUp = async (req, res)=>{
     const token = jwt.sign({email}, process.env.SECRETKEY);
     const cookieDetails = {
       httpOnly: true,
-      maxAge : 7*24*60*60*1000
+      maxAge : 7*24*60*60*1000,
     }
 
     res.cookie("token", token, cookieDetails);

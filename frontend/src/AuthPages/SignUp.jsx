@@ -23,7 +23,6 @@ export default function SignUp(){
    if(pr.status){
     setTimeout(()=>{
        navigate("/");
-      setValid(true);
     },2000)
       
    }
@@ -35,9 +34,7 @@ export default function SignUp(){
           let pr = await unp.json();
       
           if(pr.status){
-            
             navigate("/");
-            setValid(true);
           }
         }
         get();
