@@ -84,7 +84,7 @@ export default function Home(){
 
 
           <div className={styling.userBoxStyling}>
-              <ul className="flex flex-col w-full py-1.5 justify-between px-1 shadow-[1px_1px_5px_black] rounded-2xl bg-[#f5f5f589] text-black border-[1px]">
+              <ul className="flex flex-col w-full py-1.5 justify-between px-1 shadow-[1px_1px_5px_black] rounded-[4px] bg-[#f5f5f589] text-black border-[1px]">
                   <li className=" hover:bg-[#0B2B26] hover:text-white  box-border gap-1 flex w-full  h-fit py-1  px-2 text-[10px] items-center rounded-2xl"><img src="/userIcon.png"    className="h-5  rounded-2xl p-0.5"/>{userData.userId}</li>
                   <li className=" hover:bg-[#0B2B26] hover:text-white  box-border gap-1 flex w-full  h-fit py-1  px-2 text-[10px] items-center rounded-2xl"><img src="/editIcon.png"    className="h-5  rounded-2xl p-0.5"/><Link to="/Profile">Edit Profile</Link></li>
                     
@@ -94,12 +94,11 @@ export default function Home(){
                  <li className="w-full text-center"><Link to="/">Home</Link></li>
                  <li className="w-full text-center"><Link to="/Feed">Feed</Link></li>
                  <li className="w-full text-center"><Link to="/Contact">About Us</Link></li>
-                 
               </ul>
 
-             <ul className="w-full flex justify-center">
-                  <li onClick={trgrLogout} className="bg-red-400 px-2 rounded-2xl sha flex items-center shadow-[2px_2px_5px_black]" ><img src="/logOutIcon.png"  className="h-5  rounded-2xl m-2"/>LogOut</li>
-             </ul>
+            
+              <button className="hover:bg-[white] hover:text-black flex justify-center gap-2 px-1 py-2 rounded-[4px] bg-red-500  text-white text-[12px]  cursor-pointer" onClick={trgrLogout} type="submit"><img src="/logOutIcon.png" className="h-5"/>Log Out</button>        
+             
           </div>             
     </nav>
   
