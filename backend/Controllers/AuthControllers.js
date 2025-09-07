@@ -15,7 +15,9 @@ const signUp = async (req, res)=>{
     const token = jwt.sign({email}, process.env.SECRETKEY);
     const cookieDetails = {
       httpOnly: true,
-      maxAge : 7*24*60*60*1000
+      secure: true,      
+      sameSite: "None",
+      maxAge : 7*24*60*60*1000,
     }
 
     res.cookie("token", token, cookieDetails);
@@ -41,7 +43,9 @@ const signIn = async (req, res)=>{
     const token = jwt.sign({email},process.env.SECRETKEY);
     const cookieDetails = {
       httpOnly: true,
-      maxAge : 7*24*60*60*1000
+      maxAge : 7*24*60*60*1000,
+      secure: true,       
+      sameSite: "None",
     }
     res.cookie("token", token, cookieDetails);
     res.status(200).json({
@@ -67,7 +71,11 @@ const signIn = async (req, res)=>{
 
 const signOut = (req, res)=>{
   try{
-    res.clearCookie("token");
+    res.clearCookie("token",{
+       httpOnly: true,
+       secure: true,
+       sameSite: "None",
+    });
     res.status(200).json({
       status:true,
       body:"Log Out Successfull"
