@@ -17,7 +17,7 @@ export default function Home(){
         let prValid = await unpValid.json();
 
         if(prValid.status==false){
-           navigate("/signup");
+           navigate("/");
         }
         else{
          let unp = await fetch(`${baseURL}/notes`, {method:"GET", credentials:"include"});
@@ -83,10 +83,18 @@ export default function Home(){
                          
           </div>
 
-          <ul className={styling.userBoxStyling}>
-              <li className=" hover:bg-[#0B2B26] hover:text-white  box-border gap-1 flex w-full  h-fit py-1  px-2 text-[10px] items-center rounded-2xl"><img src="/userIcon.png"    className="h-5  rounded-2xl p-0.5"/>{userData.userId}</li>
-              <li onClick={trgrLogout} className=" hover:bg-[#0B2B26] hover:text-white  box-border gap-1 flex w-full  h-fit py-1  px-2 text-[10px] items-center rounded-2xl" ><img src="/logOutIcon.png"  className="h-5  rounded-2xl p-0.5"/>LogOut</li>
-          </ul>             
+
+          <div className={styling.userBoxStyling}>
+              <ul className="flex flex-col w-full py-1.5 justify-between px-1 shadow-[1px_1px_5px_black] rounded-2xl bg-[#f5f5f589] text-black border-[1px]">
+                  <li className=" hover:bg-[#0B2B26] hover:text-white  box-border gap-1 flex w-full  h-fit py-1  px-2 text-[10px] items-center rounded-2xl"><img src="/userIcon.png"    className="h-5  rounded-2xl p-0.5"/>{userData.userId}</li>
+                  <li className=" hover:bg-[#0B2B26] hover:text-white  box-border gap-1 flex w-full  h-fit py-1  px-2 text-[10px] items-center rounded-2xl"><img src="/userIcon.png"    className="h-5  rounded-2xl p-0.5"/>Edit Profile</li>
+                    
+              </ul>
+
+             <ul className="w-full flex justify-center">
+                  <li onClick={trgrLogout} className="bg-red-400 px-2 rounded-2xl sha flex items-center shadow-[2px_2px_5px_black]" ><img src="/logOutIcon.png"  className="h-5  rounded-2xl m-2"/>LogOut</li>
+             </ul>
+          </div>             
     </nav>
   
 
