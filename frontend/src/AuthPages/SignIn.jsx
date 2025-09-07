@@ -67,7 +67,7 @@ export default function SignIn(){
 
                  <form className="flex flex-col justify-center gap-3 px-2 py-4" onSubmit={trgrSubmission}>  
                        <div className="w-full flex flex-col gap-5">
-                            <input  className=" hover:bg-[#0B2B26] hover:text-white rounded-2xl bg-[#f5f5f589]  text-[black] text-[12px] text-center py-2 px-2   min-[500px]:w-100 w-[70vw] box-border overflow-clip" name="email"    type="email"    onChange={trgrChange} value={formData.name} placeholder="Email"/>
+                            <input  className=" hover:bg-[#0B2B26] hover:text-white rounded-2xl bg-[#f5f5f589]  text-[black] text-[12px] text-center py-2 px-2   min-[500px]:w-100 w-[70vw] box-border overflow-clip" name="email"    type="email"    onChange={trgrChange} value={formData.email} placeholder="Email"/>
                             <input  className=" hover:bg-[#0B2B26] hover:text-white rounded-2xl bg-[#f5f5f589]  text-[black] text-[12px] text-center py-2 px-2   min-[500px]:w-100 w-[70vw] box-border overflow-clip" name="password" type={passStat.type} onChange={trgrChange} value={formData.password} placeholder="Password"/>
                        </div>
 
