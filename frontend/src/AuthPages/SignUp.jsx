@@ -19,6 +19,7 @@ export default function SignUp(){
    e.preventDefault();
    let unp = await fetch(`${baseURL}/auth/signup`, { method:"POST", credentials: "include",  headers:{"Content-Type": "application/json"}, body: JSON.stringify(formData)});
    let pr = await unp.json();
+   console.log(formData)
    alert(pr.body);
    if(pr.status){
     setTimeout(()=>{
@@ -66,7 +67,7 @@ export default function SignUp(){
                         <div className="w-full flex flex-col gap-5">
                                <div className="flex flex-col">
                                    <label htmlFor="name" className="text-[10px] flex  items-center gap-1"><img src="/nameWhiteIcon.png" className="h-3.5"/>Name</label>
-                                   <input id="name" className="hover:bg-[#0B2B26] hover:text-white rounded-2xl bg-[#f5f5f589]  text-[black] text-[12px] text-center py-2 px-2   min-[500px]:w-100 w-[70vw] box-border overflow-clip" name="name"     type="name"     value={formData.name} onChange={trgrChange} placeholder="xyz"/>
+                                   <input id="name" className="hover:bg-[#0B2B26] hover:text-white rounded-2xl bg-[#f5f5f589]  text-[black] text-[12px] text-center py-2 px-2   min-[500px]:w-100 w-[70vw] box-border overflow-clip" name="name"     type="text"     value={formData.name} onChange={trgrChange} placeholder="xyz"/>
                                </div>
 
                                <div className="flex flex-col">
