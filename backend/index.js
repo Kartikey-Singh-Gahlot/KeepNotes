@@ -19,7 +19,7 @@ app.use(cookieParser());
 setDbConnection().then(()=>{console.log("database connected")}).catch((err)=>{ console.log(err)});
 
 
-app.use("/api", Routes)
+app.use("/", Routes)
 
 
 module.exports = app;
