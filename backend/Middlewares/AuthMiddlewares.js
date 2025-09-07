@@ -1,5 +1,6 @@
 const Joi = require('joi');
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 const schema = Joi.object({
   name: Joi.string().min(3).max(30),
