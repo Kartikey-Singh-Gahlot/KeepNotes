@@ -27,9 +27,9 @@ const signUp = async (req, res)=>{
     })
   }
   catch(err){
-    res.status(409).json({
+    res.status(500).json({
       status:false,
-      body :"Invalid Credentials"
+      body :`Internal Server Error ${err}`
     })
   }
 }

@@ -12,11 +12,16 @@ app.use(cors( {origin: true,
    credentials: true
 }));
 
+
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 
-setDbConnection().then(()=>{console.log("database connected")}).catch((err)=>{ console.log(err)});
+setDbConnection().then(()=>{
+   console.log("database connected")
+}).catch((err)=>{ 
+   process.exit(1);
+});
 
 
 app.use("/", Routes)
