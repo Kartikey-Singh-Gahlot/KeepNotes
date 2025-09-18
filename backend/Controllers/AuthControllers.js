@@ -61,9 +61,9 @@ const signIn = async (req, res)=>{
    }
   }
   catch(err){
-     res.status(409).json({
+     res.status(500).json({
       status:false,
-      body :"Credentials, Doesn't Exists"   
+      body :`Internal Server Error ${err}`  
     })
   }
 
@@ -106,9 +106,9 @@ const checkAuth = async (req, res)=>{
          })
         }
       catch(err){
-        res.status(401).json({
+        res.status(500).json({
         status:false,
-        body:"Not Authorized"
+        body:`Internal Server Error ${err}`
       })
     } 
   }
