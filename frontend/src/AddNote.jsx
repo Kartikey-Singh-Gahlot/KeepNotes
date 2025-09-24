@@ -14,7 +14,7 @@ export default function AddNote(){
        if(pr.status){
          setTimeout(()=>{
             alert("Added Successfully");
-            navigate("/");
+            navigate("/notes");
          },1000)
        }
      }

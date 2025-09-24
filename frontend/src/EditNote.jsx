@@ -30,7 +30,7 @@ export default function EditNote(){
         if(pr.status){
             setTimeout(()=>{
               alert("Updated")
-              navigate("/");
+              navigate("/notes");
             },1000)
         }
         else{

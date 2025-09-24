@@ -7,6 +7,7 @@ const Routes = require('./Routes/Routes.js');
 
 
 const app = express();
+
 app.use(cors( {origin: true,
    methods: ["GET", "POST", "PUT", "DELETE","PATCH"],
    credentials: true
