@@ -119,7 +119,7 @@ export default function Note(){
                             <button type="text" className="hover:bg-[#0B2B26] hover:text-white hover:border-amber-50 border-black border-[1px] flex justify-center gap-2 px-3 py-1 rounded-[4px] bg-red-500  text-white   items-center cursor-pointer" onClick={trgrModify} ><img src="/addIcon.png" className="h-5"/>Add</button>
                          </div>
                          <ul className="grid min-[780px]:grid-cols-3 min-[500px]:grid-cols-2 grid-cols-1 py-6  px-2 gap-5 justify-left  box-border relative">
-                               {(userData.body.length > 0)?userData.body.map((i)=>{ 
+                               {(userData.body.length > 0 )?userData.body.map((i)=>{ 
                                 return <li className=" bg-[url(/credentialsBG.jpg)] bg-cover flex flex-col w-full justify-around px-3 py-4 box-border text-white border-[#ffffff65] border-[1px] gap-5  rounded-2xl shadow-[0px_5px_10px_black] " key={i._id}>
                                              <h1 className="w-full text-center text-[20px]">{i.notesTitle}</h1>
                                              <p className="bg-[#0B2B26] backdrop-blur-[2px] underline-offset-2 underline custom-scroll  p-3 text-[13px] h-[200px] whitespace-pre-wrap break-words overflow-y-scroll text-ellipsis border-[#ffffff84] border-[1px] shadow-[0px_5px_10px_black] rounded-2xl">
