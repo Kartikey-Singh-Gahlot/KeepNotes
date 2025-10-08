@@ -48,7 +48,7 @@ export default function Note(){
     }
   }
 
-  function trgrModify(e){
+  function trgrAdd(e){
     navigate("/notes/new")
   }
 
@@ -116,18 +116,22 @@ export default function Note(){
 
                 <section className="h-full flex flex-col px-2 py-2">
                          <div className="w-full flex justify-center py-3">
-                            <button type="text" className="hover:bg-[#0B2B26] hover:text-white hover:border-amber-50 border-black border-[1px] flex justify-center gap-2 px-3 py-1 rounded-[4px] bg-red-500  text-white   items-center cursor-pointer" onClick={trgrModify} ><img src="/addIcon.png" className="h-5"/>Add</button>
+                            <button type="text" className="hover:bg-[#0B2B26] hover:text-white hover:border-amber-50 border-black border-[1px] flex justify-center gap-2 px-3 py-1 rounded-[4px] bg-red-500  text-white   items-center cursor-pointer" onClick={trgrAdd} ><img src="/addIcon.png" className="h-5"/>Add</button>
                          </div>
                          <ul className="grid min-[780px]:grid-cols-3 min-[500px]:grid-cols-2 grid-cols-1 py-6  px-2 gap-5 justify-left  box-border relative">
                                {(userData.body.length > 0 )?userData.body.map((i)=>{ 
                                 return <li className=" bg-[url(/credentialsBG.jpg)] bg-cover flex flex-col w-full justify-around px-3 py-4 box-border text-white border-[#ffffff65] border-[1px] gap-5  rounded-2xl shadow-[0px_5px_10px_black] " key={i._id}>
-                                             <h1 className="w-full text-center text-[20px]">{i.notesTitle}</h1>
+                                            <div className="w-full flex">
+                                                 <h1 className="w-full text-center text-[20px]">{i.notesTitle}</h1>
+                                                 <Link className="hover:scale-125 flex items-center justify-center gap-2" to={`/notes/${i._id}`}><img className="h-5" src="/editWhiteIcon.png"/></Link>
+                                            </div>
+
                                              <p className="bg-[#0B2B26] backdrop-blur-[2px] underline-offset-2 underline custom-scroll  p-3 text-[13px] h-[200px] whitespace-pre-wrap break-words overflow-y-scroll text-ellipsis border-[#ffffff84] border-[1px] shadow-[0px_5px_10px_black] rounded-2xl">
                                                  {i.notesContent}
                                              </p>
-                                             <ul className="w-full flex justify-evenly">
-                                                   <li className="hover:bg-[#0B2B26] hover:text-white hover:border-amber-50 border-black border-[1px] bg-red-500 text-[15px]  cursor-pointer flex items-center justify-center gap-2 px-2 py-1 rounded-[4px] shadow-[0px_2px_10px_black]" onClick={()=>{ trgrDelete(i._id)}}><img src="/deleteIcon.png" className="h-4"/>Delete</li>
-                                                   <li className="hover:bg-[#0B2B26] hover:text-white hover:border-amber-50 border-black border-[1px] bg-red-500 text-[15px]  cursor-pointer flex items-center justify-center gap-2 px-2 py-1 rounded-[4px] shadow-[0px_2px_10px_black]"><Link className="flex items-center justify-center gap-2" to={`/notes/${i._id}`}><img className="h-4" src="/editWhiteIcon.png"/>Edit</Link></li>
+
+                                             <ul className="w-full flex">
+                                                   <li className="hover:bg-[#0B2B26] hover:text-white hover:border-amber-50 border-black border-[1px] bg-red-500 text-[15px]  cursor-pointer flex w-full items-center justify-center gap-2 px-2 py-1 rounded-[4px] shadow-[0px_2px_10px_black]" onClick={()=>{ trgrDelete(i._id)}}><img src="/deleteIcon.png" className="h-4"/>Delete</li>
                                              </ul>
                                        </li>
                               }):<h1 className="w-full text-center py-4">Nothing to show here</h1>}
