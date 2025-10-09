@@ -1,10 +1,21 @@
 import { useNavigate, Link, Form } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { baseURL } from "./tools";
+import { baseURL, mobileNavBarStyle} from "./tools";
 import Features from "./Features";
 
 
 export default function Home() {
+
+    const [mobileNavStyle, setMobileNavStyle] = useState(mobileNavBarStyle[0]);
+
+    function trgrMobileNav(){
+       if(mobileNavStyle.status==0){
+         setMobileNavStyle(mobileNavBarStyle[1]);
+       }
+       else{
+        setMobileNavStyle(mobileNavBarStyle[0]);
+       }
+    }
 
     const navigate = useNavigate();
 
@@ -21,10 +32,10 @@ export default function Home() {
     }, []);
 
     return (
-        <main className="bg-gradient-to-r from-[#0B2B26] to-[#235347]  flex  flex-col text-white overflow-x-hidden">
+        <main className="bg-gradient-to-r from-[#0B2B26] to-[#235347]  flex  flex-col text-white ">
 
 
-            <header className="sticky h-fit top-0 z-10 backdrop-blur-[4px] shadow-[0px_2px_10px_black] text-white border-[#f5f5f589] px-5 py-2.5 w-full flex justify-between items-center bg-[#0B2B26] ">
+            <header className="sticky top-0 h-fit z-20 backdrop-blur-[4px] shadow-[0px_2px_10px_black] text-white border-[#f5f5f589] px-5 py-2.5 w-full flex justify-between items-center bg-[#0B2B26] ">
                 <div className="flex items-center gap-[1px]">
                     <div className="text-4xl">K</div>
                     <div className="flex flex-col items-center">
@@ -32,12 +43,19 @@ export default function Home() {
                         <h1 className="text-[7px] text-left w-full">NOTES</h1>
                     </div>
                 </div>
-                <nav className="flex gap-2">
-                    <ul className="flex justify-around">
-                        <li className="px-2 py-1"><a href='#home'>Home</a></li>
-                        <li className="px-2 py-1"><a href='#about'>About</a></li>
-                        <li className="px-2 py-1"><a href='#contact'>Contact</a></li>
+                
+                <nav className=" flex items-center gap-2 z-10 bg-[#0b2b26]">
+                    <ul className={mobileNavStyle.mobileMenuStyle}>
+                        
+                        <li className="min-[780px]:border-none min-[780px]:w-fit rounded-[10px] w-full border-1 text-center border-amber-50 px-2 py-1"><a href='#home'>Home</a></li>
+                        <li className="min-[780px]:border-none min-[780px]:w-fit rounded-[10px] w-full border-1 text-center border-amber-50 px-2 py-1"><a href='#about'>About</a></li>
+                        <li className="min-[780px]:border-none min-[780px]:w-fit rounded-[10px] w-full border-1 text-center border-amber-50 px-2 py-1"><a href='#contact'>Contact</a></li>
                     </ul>
+                    <div className={mobileNavStyle.hamBurgerMenu} onClick={trgrMobileNav}>
+                             <hr className={mobileNavStyle.one}/>
+                             <hr className={mobileNavStyle.two}/>
+                             <hr className={mobileNavStyle.three}/>
+                    </div>
                 </nav>
             </header>
 
@@ -62,7 +80,7 @@ export default function Home() {
 
 
             <section className="h-fit px-4 py-5 flex flex-col justify-center" id="about">
-                <h1 className="w-full box-border py-3 px-2 text-3xl">About Us</h1>
+                <h1 className="w-full box-border py-3 px-2 text-3xl">About</h1>
                 
                 <p className="px-2 text-[10px] min-[780px]:text-[15px] ">Keep Notes makes it effortless to organize your thoughts and ideas. Whether it’s a quick note or an important reminder, everything stays just a click away.</p>
             
