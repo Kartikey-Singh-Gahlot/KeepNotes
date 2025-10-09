@@ -78,15 +78,18 @@ export default function Home() {
             </section>
 
 
-            <section className=" h-fit w-full pt-10 pb-1" id="contact">
-                    <h1 className="w-full box-border py-3 px-2 text-3xl">Get In Touch</h1>
-                    <p className="w-full box-border py-4 px-2 text-[15px]">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi culpa ratione praesentium dolor eaque perferendis quod officiis natus harum porro deserunt, ea nihil? Officiis enim temporibus repudiandae a, ipsam saepe molestiae eius doloribus odit architecto cum autem numquam earum iure, sint porro harum excepturi nesciunt placeat minima? Cum, similique atque?</p>
+            <section className=" h-fit w-full px-4 py-2 bg-[#0B2B26]" id="contact">
+                   <h1 className="w-full text-2xl py-2">Get In Touch</h1>
 
-                   <footer className=" h-ft flex flex-col  bg-[#0B2B26] justify-center">
-                       <ul className=" flex w-full justify-center gap-2">
-                          <li>Email</li>
-                          <li>GitHub</li>
+                    <p className="px-1 text-[10px] min-[780px]:text-[15px] text-left">Your feedback helps us grow and improve. If you have suggestions, feature requests, or want to collaborate, we’re just a message away.</p>
+
+                   <footer className=" h-fit flex flex-col  justify-center">
+                       <ul className=" flex w-full justify-center gap-5 py-4">
+                          <li className="h-fit"><a className="text-[13px] flex items-center gap-1"  target="_blank" href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=GTvVlcSHxjdKGSFjBdMXjKFbqcFvvwmVlJVFZKGtdGBSmmhdpWpmdXpkfkvmzHhWXZSwtTHLckcpq"><img src="/mailIcon.png" className="h-5"/>Email</a></li>
+                          <li className="h-fit"><a className="text-[13px] flex items-center gap-1"  target="_blank" href="https://www.linkedin.com/in/kartikey-singh-gahlot-58020124b/"><img src="/linkedInIcon.png" className="h-5"/>LinkedIn</a></li>
+                          <li className="h-fit"><a className="text-[13px] flex items-center gap-1"  target="_blank" href="https://github.com/Kartikey-Singh-Gahlot"><img src="/gitHubIcon.png" className="h-5"/>GitHub</a></li>
                        </ul>
+                       <h1 className="w-full text-center text-[10px] py-2 text-gray-400">© 2025 Keep Notes. All rights reserved.</h1>
                    </footer>
             </section>
 
