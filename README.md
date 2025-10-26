@@ -21,7 +21,7 @@ A full-stack note-taking web application that allows users to securely create, e
   ## Frontend
   - Responsive UI with React.js + Tailwind CSS
   - React Router DOM for smooth client-side navigation
-
+---
 # Tech Stack
 - Frontend : React.js, Tailwind CSS, React Router DOM
 - Backend : Node.js, Express.js ( MVC structure )
