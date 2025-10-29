@@ -8,7 +8,7 @@ import Error from './Error.jsx'
 import AddNote from './AddNote.jsx'
 import Home from './Home.jsx';
 import Note from './Note.jsx'
-import "./output.css"
+import "./input.css";
 
 const router = createBrowserRouter([
   {path:"/", element: <Home/>},
