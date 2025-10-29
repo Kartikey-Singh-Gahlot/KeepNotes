@@ -23,7 +23,6 @@ export default function Home() {
         let get = async () => {
             let unpValid = await fetch(`${baseURL}/auth/userValidity`, { method: "GET", credentials: "include" });
             let prValid = await unpValid.json();
-
             if (prValid.status == true) {
                 navigate("/notes");
             }
@@ -47,9 +46,9 @@ export default function Home() {
                 <nav className=" flex items-center gap-2 z-10 bg-[#0b2b26]">
                     <ul className={mobileNavStyle.mobileMenuStyle}>
                         
-                        <li className="min-[780px]:border-none min-[780px]:w-fit rounded-[10px] w-full border-1 text-center border-amber-50 px-2 py-1"><a href='#home'>Home</a></li>
-                        <li className="min-[780px]:border-none min-[780px]:w-fit rounded-[10px] w-full border-1 text-center border-amber-50 px-2 py-1"><a href='#about'>About</a></li>
-                        <li className="min-[780px]:border-none min-[780px]:w-fit rounded-[10px] w-full border-1 text-center border-amber-50 px-2 py-1"><a href='#contact'>Contact</a></li>
+                        <li className="flex"><a className="min-[780px]:border-none min-[780px]:w-fit rounded-[10px] w-full border text-center border-amber-50 px-2 py-1" href='#home'>Home</a></li>
+                        <li className="flex"><a className="min-[780px]:border-none min-[780px]:w-fit rounded-[10px] w-full border text-center border-amber-50 px-2 py-1" href='#about'>About</a></li>
+                        <li className="flex"><a className="min-[780px]:border-none min-[780px]:w-fit rounded-[10px] w-full border text-center border-amber-50 px-2 py-1" href='#contact'>Contact</a></li>
                     </ul>
                     <div className={mobileNavStyle.hamBurgerMenu} onClick={trgrMobileNav}>
                              <hr className={mobileNavStyle.one}/>
@@ -79,12 +78,12 @@ export default function Home() {
             </section>
 
 
-            <section className="h-fit px-4 py-5 flex flex-col justify-center" id="about">
+            <section className="h-fit px-4 py-8 flex flex-col justify-center" id="about">
                 <h1 className="w-full box-border py-3 px-2 text-3xl">About</h1>
                 
                 <p className="px-2 text-[10px] min-[780px]:text-[15px] ">Keep Notes makes it effortless to organize your thoughts and ideas. Whether it’s a quick note or an important reminder, everything stays just a click away.</p>
             
-                <div className="flex py-3 ">
+                <div className="flex py-6 ">
                     <ul className="min-[780px]:flex grid min-[450px]:grid-cols-2  grid-rows-[auto]  w-full justify-around ">
                        <Features featureHeading="Add a new note instantly"  featureImageLink="/addNote.png" />
                        <Features featureHeading="Edit or update notes effortlessly" featureImageLink="/editNote.png" />
@@ -97,9 +96,11 @@ export default function Home() {
 
 
             <section className=" h-fit w-full px-4 py-2 bg-[#0B2B26]" id="contact">
-                   <h1 className="w-full text-2xl py-2">Get In Touch</h1>
-
-                    <p className="px-1 text-[10px] min-[780px]:text-[15px] text-left">Your feedback helps us grow and improve. If you have suggestions, feature requests, or want to collaborate, we’re just a message away.</p>
+                   <h1 className="w-full text-2xl py-5 text-center">Get In Touch</h1>
+                    
+                    <div className="w-full flex justify-center">
+                         <p className="px-1 text-[10px] min-[780px]:text-[15px] text-left">Your feedback helps us grow and improve. If you have suggestions, feature requests, or want to collaborate, we’re just a message away.</p>
+                    </div>
 
                    <footer className=" h-fit flex flex-col  justify-center">
                        <ul className=" flex w-full justify-center gap-5 py-4">
